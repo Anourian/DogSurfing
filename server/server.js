@@ -40,8 +40,10 @@ app.post('/profile', upload.single('file'), function(req, res){
   db.profile.post(req.body, function(data2, status){
     if (status === 201) {
       var token = jwt.encode(data2.name, secret);
+      res.status(status).send({data: data2, token: token});
+    } else {
+      res.status(status).send({data:data2});
     }
-    res.status(status).send({data: data2, token: token});
   });
 });
 
@@ -80,6 +82,6 @@ app.post('/login', function(req, res){
 });
 var port = process.env.PORT || 5000;
 app.listen(port, function(){
-  console.log('listening on port 5000');
+  console.log('listening on port: ' + port);
 });
 
