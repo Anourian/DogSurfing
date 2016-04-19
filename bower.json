@@ -3,10 +3,12 @@
   "description": "",
   "main": "index.js",
   "authors": [
-    "Justin <justinminh225@gmail.com>"
+    "Justin <justinminh225@gmail.com>",
+    "Robin <robin.giannattasio@gmail.com>",
+    "Anthony <annourian@gmail.com>"
   ],
   "license": "ISC",
-  "homepage": "https://github.com/justinTime225/DogSurfing",
+  "homepage": "https://github.com/fidoBarkalot/DogSurfing",
   "moduleType": [],
   "ignore": [
     "**/.*",
