@@ -2,6 +2,7 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 // var restful = require('node-restful');
 var port = process.env.MONGOLAB_URI || 'mongodb://localhost/greenfield';
+console.log('mongo connected to port:' + port);
 mongoose.connect(port);
 
 var db = mongoose.connection;
