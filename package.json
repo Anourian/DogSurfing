@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fidoBarkalot/DogSurfing"
+    "url": "https://github.com/DogSurfing/DogSurfing"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/fidoBarkalot/DogSurfing/issues"
+    "url": "https://github.com/DogSurfing/DogSurfing/issues"
   },
-  "homepage": "https://github.com/fidoBarkalot/DogSurfing",
+  "homepage": "https://github.com/DogSurfing/DogSurfing",
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.15.0",
