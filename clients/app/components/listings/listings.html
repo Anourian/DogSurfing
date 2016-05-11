@@ -1,13 +1,28 @@
 <button ng-show='isAuth' ng-click='logout()' class="btn btn-primary logout-btn">Logout</button>
 <div class="container">
-  <h1 class="listing-header">View Listings/Posts</h1>
+  <h1 class="listing-header">View Listings</h1>
   <div class="listing-tile" ng-repeat="listing in listings | orderBy: 'name'" ng-class="{'listing-tile--alt': $last}" class='listing-tile'>
-    <h4>
-      <a ng-href="#/profile/{{listing.email}}" >
-       {{listing.name}}
-      </a>
-      <span class="pull-right listing-subheader">Email: {{listing.email}}</span>
-    </h4>
-    {{listing.message}}
+    <div>
+      <div class="listing-tile__img">
+        <img class='listing-tile__img__item' ng-src="assets/img/profile/{{listing.image}}" alt="{{main.auth.username}} profile">
+      </div>
+      <div class='listing-tile__body'>
+        <h4 class='listing-tile__body__header'>
+          <a ng-href="#/profile/{{listing.email}}" >
+           {{listing.name}}
+          </a>          
+        </h4>
+        <div class="listing-tile__subheader"><strong>Contact:</strong> {{listing.email}}</div>
+        <div class='listing-tile__type'>
+          <strong>Listing Type:</strong>
+          <span ng-if="listing.type === 'need'">I need someone to watch my dog</span>
+          <span ng-if="listing.type === 'sharing'">My home is available for dogs</span>
+        </div>
+        <div class='listing-tile__dogtype'><strong>Dog Type:</strong> {{listing.dogtype}}</div>
+        <p class='listing-tile__body__copy'>
+          {{listing.message}}      
+        </p>              
+      </div>
+    </div>
   </div>    
 </div>

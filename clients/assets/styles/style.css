@@ -2,20 +2,142 @@ body {
   font-family: 'Roboto', sans-serif;
   padding-top:50px;
 }
-
+h2 {    font-family: 'Dosis', sans-serif;
+    font-size: 3em;}
 .main {
-  height: calc(100vh - 50px);
+  min-height: 70vh;
   width: 100%;
-  animation: main 30s infinite linear;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.51)), url('../img/Yazoo.jpg');
+  /*animation: main 30s infinite linear;*/
+}
+.main .btn {
+  margin:0 10px;
+}
+.main-header {
+    color: white;
+    font-size: 4.2em;
+    font-family: 'Dosis', sans-serif;
+    margin-top: 85px;
+}
+.main-subheader {
+    font-size: 2.5em;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    text-align: center;
+    padding-bottom: 40px;
+}
+.fa {
+  display:block;
+  font-size: 4em;
+  color:#04aab3;
+  margin-bottom:15px;
+}
+.info {
+  background:#fff;  
+}
+.info-alt, .info {
+    padding: 15px 15px 55px;
+}
+.info-block {
+    background-color: #F6F9F9;
+    padding: 30px;
+    width: 33.333333%;
+    display: inline-block;
+    margin: 1%;
+    float: left;
+    text-align: justify;
+    color: #52989C;
+}
+.info-block-wrap {
+  display:flex;
+}
+.info-block-header {
+  color:#04aab3;
+  text-align: center;
+  font-size:18px;
 }
 #map {
   width:100%;
   height:400px;
 }
-
-@keyframes main {
+.info-block-header-alt, .fa-alt {
+    color: #A9B2C7;
+}
+.info-block-alt {
+    background: rgba(200, 203, 210, 0.32);
+    color: #516286;
+}
+.body{
+  min-height:80vh;
+}
+.callToAction {    
+  background:linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.51)), url('../img/Poe.jpg');
+  min-height: 400px;
+  background-position:0% 10%;
+}
+.callToAction, .main {
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color:white;
+}
+footer {
+    height: 150px;
+    background: #353B48;
+    color: #777;
+    padding: 45px 15px;
+    border-top: 1px solid #2F3440;
+}
+.btn {
+  border-radius: 0 !important;
+  color: white; 
+  background-color:#1A9BE5; 
+}
+.btn:hover {
+  background-color:#1782BF;
+}
+.btn-lg {
+    padding: 10px 30px;
+    height: inherit;
+    font-size: 1.6em;
+}
+.btn:hover {
+  color:white;
+}
+.btn-default {
+  background-color:transparent;
+  border: 1px solid #DC6367;
+}
+.btn-default:hover {
+  border-color:#fff;
+  background: transparent;
+}
+.btn-primary {
+  background-color: #ee6e73;
+  border-color: #DC6367;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color:#DC6367;
+  border-color: #DC6367; 
+}
+.btn-margint {
+  margin-top:20px;
+}
+.navbar-default {
+  height:50px;
+  line-height:50px;
+  background-color:#fff;
+  box-shadow:none;
+}
+.navbar-brand {
+  padding:10px;
+}
+.navbar-brand__img {
+  height:30px;
+}
+/*@keyframes main {
   0% {
     background-image: url('/assets/img/Yazoo.jpg');
   }
@@ -49,20 +171,20 @@ body {
   100% {
     background-image: url('/assets/img/Yazoo.jpg');
   }
-}
+}*/
 
 .thumb {
-    width: 24px;
-    height: 24px;
+    width: 50px;
+    height: 50px;
     float: none;
     position: relative;
-    top: 7px;
+    margin-top: 10px;
 }
 
 form .progress {
     line-height: 15px;
 }
-}
+
 
 .progress {
     display: inline-block;
@@ -75,63 +197,58 @@ form .progress {
     background: orange;
     width: 0;
 }
-
-.directory-img {
-    width: 50px;
-    float: left;
-}
-
-.directory-img img {
-    width: 100%;
-}
-
-.directory-body {
-    float: left;
-    width: calc(100% - 50px);
-    padding: 0 20px;
-}
-
-.directory-tile {
-    border-bottom: 1px solid gray;
-    padding:15px 0;
-}
-.directory-tile--alt {
-  border:none;
-}
 .listing-tile {
-    border: 1px solid gray;
+    border: 1px solid #F3F2F2;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 4px;
     margin-bottom: 15px;
-    box-shadow: 1px 1px 1px #000;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.06);
     background-color: #fff;
-    text-align:justify;
+    text-align: justify;
+    display: flex;
+}
+.listing-tile__img {
+  width:20%;
+  float:left;  
+}
+.listing-tile__img__item {
+  width:100%;
+}
+.listing-tile__body {
+  width:80%;
+  float:left;
+  padding-left:15px;
+}
+.listing-tile__body__header {
+    margin: 0 0 10px;
+    font-size: 1.5em;
+}
+
+.listing-tile__subheader, .listing-tile__type, .listing-tile__dogtype {
+    margin-bottom: 10px;
 }
 .listing-header,.create-header,.signin-header, h1 {
-  color:#04aab3;
-  text-align:center;
+  color:#1A9BE5;
   border:none;
   font-size:2em;
 }
 .listing-header {
   margin-bottom:20px;
 }
-.listing-subheader {
-  font-size: .8em;
-}
 .view {
-  background-color:#eee;
-  min-height:calc(100vh - 50px);
+  background-color:#f3f5f8;
+  min-height:calc(100vh - 100px);
 }
 .view-wrap {
   background-color:#fff;
+  min-height:calc(100vh - 100px);
+  border-right: 1px solid #ccc;
+  border-left: 1px solid #ccc;
 }
 .required {
   color:red;
 }
 .create-form {
-  background:#fff;
-  box-shadow:2px 2px 2px #000;
   padding:15px;
   margin-top:40px;
 }
@@ -190,4 +307,35 @@ form .progress {
 }
 .logout-btn:hover {
   background-color:#04579E !important;
+}
+.signin-create{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.signin-create .btn {
+  margin-top: 10px;
+}
+.signin-create__link {
+  font-size:1.2em;
+}
+
+/*Materialize overwrites*/
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:after {
+    background-color: #1A9BE5;
+    z-index: 0;
+}
+[type="radio"]:checked+label:after, [type="radio"].with-gap:checked+label:before, [type="radio"].with-gap:checked+label:after {
+    border: 2px solid #1A9BE5;
+}
+input:not([type]):focus:not([readonly]), input[type=text]:focus:not([readonly]), input[type=password]:focus:not([readonly]), input[type=email]:focus:not([readonly]), input[type=url]:focus:not([readonly]), input[type=time]:focus:not([readonly]), input[type=date]:focus:not([readonly]), input[type=datetime]:focus:not([readonly]), input[type=datetime-local]:focus:not([readonly]), input[type=tel]:focus:not([readonly]), input[type=number]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
+    border-bottom: 1px solid #1A9BE5;
+    box-shadow: 0 1px 0 0 #1A9BE5;
+}
+.form-control:focus {
+  border-color:#1A9BE5;
+}
+[type="radio"]:not(:checked)+label, [type="radio"]:checked+label {
+  padding-left:30px;
 }

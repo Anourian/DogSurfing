@@ -1,19 +1,19 @@
 angular.module('dogSurfing')
 .controller('profileController', function($scope, dataFactory, $window, $state){
   $scope.gPlaceDetails;
-  $scope.isAuth = dataFactory.getAuth();
-  $scope.canEdit = false;
-  $scope.logout = function(){
+  /*$scope.isAuth = dataFactory.getAuth();
+  $scope.canEdit = false;*/
+  /*$scope.logout = function(){
     dataFactory.clearStorage();
     $scope.canEdit = false;
     $scope.isAuth = false;
-  };
+  };*/
   $scope.getProfile = dataFactory.currentProfile();
-  var currentName = $window.sessionStorage.getItem('dogSurfingName');
+  /*var currentName = $window.sessionStorage.getItem('dogSurfingName');
   var currentToken = !!$window.sessionStorage.getItem('dogSurfingToken');
   if (currentName === $scope.getProfile.name && currentToken) {
     $scope.canEdit = true;
-  } 
+  }*/ 
   $scope.events = $scope.getProfile.events;
   $scope.saveCalendar = function() {
     var eventObj = {eventArray: $scope.events};

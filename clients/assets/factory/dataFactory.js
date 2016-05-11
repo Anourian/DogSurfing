@@ -2,6 +2,13 @@ angular.module('dogSurfing')
 .factory('dataFactory', function($http, $window) {
   var currentProfile;
   var allProfiles = {};
+  var auth = {
+    loggedIn:false,
+    username:'',
+    token:'',
+    image:'',
+    email:''
+  };
   var createPost = function(dataObj) {
     return $http.post('/post', dataObj)
     .then(function(result) {
@@ -43,6 +50,11 @@ angular.module('dogSurfing')
   };
   var getAuth = function (){
     if ($window.sessionStorage.dogSurfingName && $window.sessionStorage.dogSurfingToken){
+      auth.username = $window.sessionStorage.dogSurfingName;
+      auth.token = $window.sessionStorage.dogSurfingToken;
+      auth.image = $window.sessionStorage.dogSurfingUserImage;
+      auth.email = $window.sessionStorage.dogSurfingUserEmail;
+      auth.loggedIn = true;
       return true;
     }
     return false;
@@ -52,10 +64,29 @@ angular.module('dogSurfing')
     .then(function(result){
       return result.data;
     });
-  };  
-  var clearStorage = function(){
-    $window.sessionStorage.clear();
   };
+  var logIn = function(name, data){
+    $window.sessionStorage.setItem('dogSurfingToken', data.token);
+    $window.sessionStorage.setItem('dogSurfingName', name);
+    $window.sessionStorage.setItem('dogSurfingUserEmail', data.email);
+    $window.sessionStorage.setItem('dogSurfingUserImage', data.image);
+    auth.username = name;
+    auth.token = data.token;
+    auth.image = data.image;
+    auth.email = data.email;
+    auth.loggedIn = true;
+  };  
+  var logOut = function (){
+    $window.sessionStorage.clear();
+    auth.loggedIn =false;
+    auth.username='';
+    auth.token='';
+    auth.image='';
+    auth.email='';
+  };
+  /*var clearStorage = function(){
+    $window.sessionStorage.clear();
+  };*/
   return {
     createPost: createPost,
     getListings:getListings,
@@ -67,6 +98,8 @@ angular.module('dogSurfing')
     updateCalendar: updateCalendar,
     getAuth:getAuth,
     signIn:signIn,
-    clearStorage:clearStorage
+    auth:auth,
+    logIn:logIn,
+    logOut:logOut
   };
 });

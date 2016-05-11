@@ -2,47 +2,23 @@
 <html>
 <head>
   <title>Dog Surfing</title>
+  <link rel='shortcut icon' type='image/x-icon' href='favicon.ico' />
   <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Dosis' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" type="text/css" href="assets/libs/bootstrap.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/angular-simple-calendar.css">
+  <link rel="stylesheet" type="text/css" href="assets/styles/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="assets/styles/style.css">
 </head>
-<body ng-app='dogSurfing'>
-  <nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" ui-sref='home'>Home</a>
-      </div>
-      <div id="navbar" ng-init='isCollapsed = true' uib-collapse='isCollapsed' class="collapse navbar-collapse text-center">
-        <ul class="nav navbar-nav visible-xs">         
-          <li><a ui-sref='directory'>Directory</a></li>
-          <li><a ui-sref='listings'>Listings</a></li>
-          <li><a ui-sref='create'>Create Profile</a></li>
-          <li><a ui-sref='addListing'>Create Listing</a></li>
-          <li><a ui-sref='signin'>Sign in</a></li>
-        </ul>
-        <ul class="nav navbar-nav hidden-xs pull-right">
-          <li><a ui-sref='directory'>Directory</a></li>
-          <li><a ui-sref='listings'>Listings</a></li>
-          <li><a ui-sref='create'>Create Profile</a></li>
-          <li><a ui-sref='addListing'>Create Listing</a></li>
-          <li><a ui-sref='signin'>Sign in</a></li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </nav>
+<body ng-app='dogSurfing'>  
   <!-- <a ui-sref="home" class="btn btn-primary">home</a>
   <a ui-sref="directory" class="btn btn-primary">directory</a>
   <a ui-sref="listings" class="btn btn-primary">listings</a>
   <a ui-sref="create" class="btn btn-primary">create</a>
   <a ui-sref="addListing" class="btn btn-primary">add listing</a> -->
-  <div ui-view class="view"></div>
+  <div ui-view></div>
     
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhTFSqImyUdqwKMeIcMzucwHlHCU16Gcw&libraries=places"></script>
 <script type="text/javascript" src="assets/libs/angular.js"></script>
@@ -57,7 +33,7 @@
 
 <script type="text/javascript" src="assets/directives/angular-simple-calendar.js"></script>
 <script type="text/javascript" src="assets/directives/googlePlace.js"></script>
-<script type="text/javascript" src="app/components/main/main.controller.js"></script>
+<script type="text/javascript" src="app/components/template.controller.js"></script>
 
 <script type="text/javascript" src="app/components/listings/listings.controller.js"></script>
 <script type="text/javascript" src="app/components/signin/signin.controller.js"></script>

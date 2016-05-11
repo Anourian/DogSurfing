@@ -1,7 +1,12 @@
-<button ng-show='isAuth' ng-click='logout()' class="btn btn-primary logout-btn">Logout</button>
 <div class="container">
   <FORM name='myForm' ng-submit="uploadPic(picFile, name, password, email, location, about)" class="create-form">
   <legend class="create-header">Create a Profile</legend>
+  <div class='alert alert-danger' ng-if='main.auth.loggedIn'>
+    Please logout to create a new Profile.
+  </div>
+  <div class='alert alert-danger' ng-if='inUse'>
+    {{inUse}}
+  </div>
   <p>
     <span class="required">*</span>
     All Fields Required
@@ -10,41 +15,40 @@
     <div class="col-sm-6">
       <div class="form-group">
         <label for="name">Full name</label>
-        <input class="form-control" id="name" required type="text" ng-model="name"/>
-      </div>
-      <div class="form-group">
-        <label for="password">Password</label>
-        <input class="form-control" id="password" required type="text" ng-model="password"/>
-      </div>
+        <input class="form-control" id="name" required type="text" ng-model="name" tabindex='1'/>
+      </div>      
       <div class="form-group">
         <label for="email">Email</label>
-        <input class="form-control" id="email" required type="email" ng-model="email"/>
-      </div>
-      <div class="form-group">
-      <label for="location">Location</label>
-        <input class="form-control" id="location" ng-model='location' placeholder="Enter your address" type="text" googleplace/>
+        <input class="form-control" id="email" required type="email" ng-model="email" tabindex='3'/>
       </div>
       <div class="form-group">
         <label for="picFile">Image</label>
-        <input type="file" ngf-select ng-model="picFile" accept="image/*" ngf-max-size="5MB" required ngf-model-invalid="errorFile" ngf-resize="{width: 250, height: 250}">
+        <input type="file" ngf-select ng-model="picFile" accept="image/*" ngf-max-size="5MB" required ngf-model-invalid="errorFile" ngf-resize="{width: 250, height: 250}" tabindex='5'>
         <p ng-show="myForm.file.$error.maxSize">File too large {{errorFile.size / 1000000|number:1}}MB: max 5MB</p>
-        <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb">
-        <button ng-click="picFile = null" ng-show="picFile">Remove</button>
+        <img ng-show="myForm.file.$valid" ngf-thumbnail="picFile" class="thumb">        
         <span class="progress" ng-show="picFile.progress >= 0">
           <div style="width:{{picFile.progress}}%" ng-bind="picFile.progress + '%'"></div>
         </span>
         <span ng-show="picFile.result">Upload Successful</span>
         <span class="err" ng-show="errorMsg">{{errorMsg}}</span>
-      </div>    
+      </div>      
   </div>
     <div class="col-sm-6">
       <div class="form-group">
+        <label for="password">Password</label>
+        <input class="form-control" id="password" required type="password" ng-model="password" tabindex='2'/>
+      </div>
+      <div class="form-group">
+        <label for="location">City</label>
+        <input class="form-control" id="location" ng-model='location' placeholder="Enter your City" type="text" googleplace tabindex='4'/>
+      </div>
+      <div class="form-group">
         <label for="about">About</label>
-        <textarea class="form-control" id="about" ng-model="about" rows='9'></textarea>
-      </div>
-      <div class="clearfix">
-        <button type="submit" class="btn btn-primary">Submit</button>          
-      </div>
+        <textarea class="form-control" id="about" ng-model="about" rows='3' tabindex='6'></textarea>
+      </div>      
+      <div class="clearfix pull-right" ng-if='!main.auth.loggedIn'>
+        <button type="submit" class="btn btn-primary btn-margint" tabindex='7'>Create Profile</button>          
+      </div>      
     </div>
   </FORM>
 </div>

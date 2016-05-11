@@ -4,16 +4,25 @@ angular.module('dogSurfing')
     $stateProvider
       .state('home', {
         url:'/',
-        templateUrl: 'app/components/main/main.html',
-        controller: 'mainController' 
+        templateUrl: 'app/components/template.html',
+        controller: 'templateController',
+        controllerAs:'main',
+        abstract:true 
       })
-      .state('listings', {
-        url:'/listings',
+      .state('home.main', {
+        parent:'home',
+        url:'',
+        templateUrl: 'app/components/main/main.html' 
+      })
+      .state('home.listings', {
+        parent:'home',
+        url:'listings',
         templateUrl: 'app/components/listings/listings.html',
         controller: 'listingsController'
       })
-      .state('directory', {
-        url:'/directory',
+      /*.state('home.directory', {
+        parent:'home',
+        url:'directory',
         templateUrl: 'app/components/directory/directory.html',
         controller: 'directoryController',
         resolve: {
@@ -21,9 +30,10 @@ angular.module('dogSurfing')
             return dataFactory.getAllProfiles();
           }
         }
-      })
-      .state('profile', {
-        url:'/profile/:email',
+      })*/
+      .state('home.profile', {
+        parent:'home',
+        url:'profile/:email',
         templateUrl: 'app/components/profile/profile.html',
         controller: 'profileController',
         resolve: {
@@ -32,18 +42,21 @@ angular.module('dogSurfing')
           }
         }
       })      
-      .state('create', {
-        url:'/create',
+      .state('home.create', {
+        parent:'home',
+        url:'create',
         templateUrl: 'app/components/create/create.html',
         controller: 'createController'
       })
-      .state('signin', {
-        url:'/signin',
+      .state('home.signin', {
+        parent:'home',
+        url:'signin',
         templateUrl: 'app/components/signin/signin.html',
         controller: 'signInController'
       })
-      .state('addListing', {
-        url: '/addListing',
+      .state('home.addListing', {
+        parent:'home',
+        url: 'addListing',
         templateUrl: 'app/components/addListing/addListing.html',
         controller: 'addListingController'
       })

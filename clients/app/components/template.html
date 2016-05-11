@@ -1,0 +1,45 @@
+<div class=''>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" ng-click="isCollapsed = !isCollapsed" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ui-sref='home.main'><img class='navbar-brand__img' ng-src="assets/img/brand.png" alt='Brand img'/></a>
+      </div>
+      <div id="navbar" ng-init='isCollapsed = true' uib-collapse='isCollapsed' class="collapse navbar-collapse text-center">
+        <ul class="nav navbar-nav visible-xs">
+          <li><a ui-sref='home.listings'>Listings</a></li>
+          <li ng-if='!main.auth.loggedIn'><a ui-sref='home.create'>Sign Up</a></li>
+          <li ng-if='main.auth.loggedIn'><a ui-sref='home.addListing'>Create Listing</a></li>
+          <li ng-if='!main.auth.loggedIn'><a ui-sref='home.signin'>Log In</a></li>
+          <li ng-if='main.auth.loggedIn'><a  ui-sref={{currentState}} ng-click='main.logOut()'>Sign Out</a></li>
+        </ul>
+        <ul class="nav navbar-nav hidden-xs pull-right">          
+          <li><a ui-sref='home.listings'>Listings</a></li>
+          <li ng-if='!main.auth.loggedIn'><a ui-sref='home.create'>Sign Up</a></li>
+          <li ng-if='main.auth.loggedIn'><a ui-sref='home.addListing'>Create Listing</a></li>
+          <li ng-if='!main.auth.loggedIn'><a ui-sref='home.signin'>Log In</a></li>
+          <li ng-if='main.auth.loggedIn'><a  ui-sref={{currentState}} ng-click='main.logOut()'>Sign Out</a></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </nav>
+  <div ui-view class='view'></div>
+  <footer>
+    <div class='container'>Copyright &copy; DogSurfing 2016.</div>
+  </footer>
+<!--     <div style="height: 305px">
+      <uib-carousel active="active" interval="myInterval" no-wrap="noWrapSlides" no-transition="true">
+        <uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
+          <img class='carousel-image' ng-src="{{slide.image}}" style="margin:auto;">
+          <div class="carousel-caption">
+            <p>{{slide.text}}</p>
+          </div>
+        </uib-slide>
+      </uib-carousel>
+    </div> -->
+</div>
