@@ -71,7 +71,7 @@ exports.profile = {
         console.log('about to bcrypt this data fo sho');
         console.log(data);
         if (data !== null){
-          cb(bcrypt.compareSync(input.password, data.password));                  
+          cb(bcrypt.compareSync(input.password, data.password), data.email, data.image);                  
         } else {
           cb(false);
         }

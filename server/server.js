@@ -70,11 +70,10 @@ app.post('/post', function(req, res){
   });
 });
 app.post('/login', function(req, res){
-  console.log('req.body = ' + JSON.stringify(req.body));
-  db.profile.Auth(req.body, function(dataFromDb){
+  db.profile.Auth(req.body, function(dataFromDb, email, image){
     if (dataFromDb === true){
       var token = jwt.encode(req.body.name, secret);
-      res.status(200).send({token: token});
+      res.status(200).send({token:token, email:email, image:image});
     } else {
       res.status(201).send('error');
     }

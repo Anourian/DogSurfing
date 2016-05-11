@@ -50,12 +50,22 @@ var postSchema = mongoose.Schema({
   },
   email: {
     type: String,
-    unique: true,
+    /*unique: true,*/
     required: true
   },
   message: {
     type: String,
     required: true
+  },
+  image:{
+    type:String,
+    required:true
+  },
+  type:{
+    type:String
+  },
+  dogtype: {
+    type:String
   }
 });
 
