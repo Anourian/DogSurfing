@@ -136,6 +136,7 @@ footer {
 }
 .navbar-brand__img {
   height:30px;
+  display:inline-block !important;
 }
 /*@keyframes main {
   0% {
